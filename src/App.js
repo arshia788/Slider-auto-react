@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import people from './data'
 
 import { FaArrowAltCircleLeft } from "react-icons/fa";
@@ -9,6 +9,22 @@ function App() {
 
   const [item, setItem]= useState(people);
   const [index, setIndex]= useState(0);
+
+  useEffect(()=>{
+
+    const dataLength= people.length -1
+
+    if(index < 0){
+      setIndex(dataLength)
+    }
+
+    if(index > dataLength){
+      setIndex(0)
+    }
+
+
+
+  },[index, item])
 
   return (
     <div className='container'>
