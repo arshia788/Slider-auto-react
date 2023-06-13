@@ -22,7 +22,11 @@ function App() {
       setIndex(0)
     }
 
+    const timer= setInterval(()=>{
+      setIndex(index +1)
+    },3000)
 
+    return ()=> clearInterval(timer)
 
   },[index, item])
 
