@@ -21,14 +21,17 @@ function App() {
     if(index > dataLength){
       setIndex(0)
     }
+  },[index, item])
 
-    const timer= setInterval(()=>{
+  useEffect(()=>{
+    
+    let timer= setInterval(()=>{
       setIndex(index +1)
     },3000)
 
     return ()=> clearInterval(timer)
 
-  },[index, item])
+  },[index])
 
   return (
     <div className='container'>
@@ -63,7 +66,6 @@ function App() {
           }
 
           <div className='holder-btn'>  
-
               <button>
                 <FaArrowAltCircleLeft onClick={()=> setIndex(index -1)}/>
               </button>
